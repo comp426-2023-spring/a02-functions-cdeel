@@ -17,3 +17,24 @@ if (args.h) {
     -j            Echo pretty JSON from open-meteo API and exit.`);
     process.exit(0);
   }
+
+if (args.z) {
+    timezone = args.z
+}
+
+var latitude;
+if (args.n) {
+    latitude = args.n;
+} else {
+    latitude = args.s * -1;
+}
+
+var longitude;
+if(args.e) {
+    longitude = args.e;
+}
+else {
+   longitude = args.w * -1;
+}
+
+var urlFinal = await fetch("https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&timezone=" + timezone + "&daily=precipitation_hours");
