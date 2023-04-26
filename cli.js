@@ -44,3 +44,31 @@ if(args.j) {
     console.log(data);
     process.exit(0);
 }
+
+const days = args.d;
+if (args.d == null) {
+    days = 1;
+}
+
+if (days == 0) {
+	if(data.daily.precipitation_hours[0] > 0) {
+	 	console.log("You might need your galoshes");	
+	}  else{
+	console.log("You will not need your galoshes");
+	}
+    console.log("today.");
+}else if (days > 1) {
+	if( data.daily.precipitation_hours[days] > 0) {
+		console.log("You might need your galoshes");
+	} else{
+	console.log("You will not need your galoshes")
+	} 
+    console.log("in " + days + " days.");
+} else if (days = 1) { 
+	if(data.daily.precipitation_hours[1] > 0) {
+		console.log("You might need your galoshes");
+	} else{
+		console.log("You will not need your galoshes");
+	}
+    console.log("tomorrow.");
+}
